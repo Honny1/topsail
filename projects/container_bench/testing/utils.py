@@ -98,6 +98,8 @@ def cleanup_podman_files(base_work_dir):
 
 def cleanup_container_images(base_work_dir):
     container_images_config = ConfigManager.get_container_images_config()
+    if "dir" not in container_images_config:
+        return
     images_dir = container_images_config['dir']
     dest = Path(images_dir)
 
